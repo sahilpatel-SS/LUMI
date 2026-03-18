@@ -9,9 +9,9 @@ export function BackButton({ onClick }: Props) {
     <div className="flex justify-end mb-6">
       <button
         onClick={onClick}
-        className="flex items-center gap-1.5 text-sm font-medium text-dark hover:opacity-60 transition-opacity"
+        className="flex items-center gap-1.5 text-lg font-medium text-dark hover:opacity-60 transition-opacity"
       >
-        <CornerDownLeft size={15} />
+        <CornerDownLeft size={20} />
         Back
       </button>
     </div>

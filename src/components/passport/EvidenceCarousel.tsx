@@ -13,7 +13,7 @@ export function EvidenceCarousel({ label, images }: Props) {
 
   return (
     <div className="mb-6">
-      <p className="text-[15px] font-semibold text-gray-900 mb-3">{label}</p>
+      <p className="text-xl font-medium text-dark mb-3">{label}</p>
       <div
         className="flex gap-3 overflow-x-auto pb-2"
         style={{ scrollbarWidth: 'thin', scrollbarColor: '#d1d5db #f3f4f6' }}

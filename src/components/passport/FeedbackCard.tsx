@@ -14,33 +14,31 @@ export function FeedbackCard({ sessions, activeIdx, onNext }: Props) {
   const hasNext = activeIdx < sessions.length - 1;
 
   return (
-    <div className="sp-card p-6">
+    <div className="sp-card p-6 border border-gray-300 max-w-lg">
       {/* Header */}
-      <div className="flex justify-between items-center mb-5">
-        <span className="text-[13px] font-semibold text-primary">
+      <div className="flex justify-between items-center mb-1">
+        <span className="text-md font-medium text-primary">
           Session: {session.sessionNumber}
         </span>
-        <span className="text-[13px] font-semibold text-primary">
+        <span className="text-md font-medium text-primary">
           Score: {session.score}
         </span>
       </div>
 
       {/* What went well */}
       <div className="mb-4">
-        <p className="text-[13px] font-bold text-dark mb-1.5">
-          What went well:
-        </p>
-        <p className="text-sm font-normal text-muted leading-relaxed">
+        <p className="text-base font-bold text-dark mb-1.5">What went well:</p>
+        <p className="text-base font-normal italic text-black leading-relaxed">
           {session.whatWentWell}
         </p>
       </div>
 
       {/* Areas for improvement */}
       <div className="mb-4">
-        <p className="text-[13px] font-bold text-dark mb-1.5">
+        <p className="text-base font-bold text-dark mb-1.5">
           Areas for Improvement:
         </p>
-        <p className="text-sm font-normal text-muted leading-relaxed">
+        <p className="text-base font-normal text-black leading-relaxed">
           {session.improvements}
         </p>
       </div>
@@ -49,9 +47,9 @@ export function FeedbackCard({ sessions, activeIdx, onNext }: Props) {
         <div className="flex justify-end">
           <button
             onClick={onNext}
-            className="flex items-center gap-1 text-[13px] font-medium text-primary hover:gap-2 transition-all"
+            className="flex items-center gap-1 text-lg font-medium text-primary hover:gap-2 transition-all"
           >
-            Next <ArrowRight size={13} />
+            Next <ArrowRight size={20} />
           </button>
         </div>
       )}

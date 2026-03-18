@@ -21,8 +21,8 @@ export function SkillChart({ skillName, sessions }: Props) {
   }));
 
   return (
-    <div className="sp-card p-6">
-      <p className="text-[11px] font-semibold text-muted uppercase tracking-widest mb-3">
+    <div className="sp-card p-6 border border-gray-300 max-w-lg">
+      <p className="text-base font-semibold text-black uppercase tracking-widest mb-3">
         Skill Progress
       </p>
 

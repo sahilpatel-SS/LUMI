@@ -12,7 +12,7 @@ interface Props {
 export function CircularGauge({
   score,
   maxScore = 5,
-  size = 140,
+  size = 160,
   color = '#2DD4A0',
 }: Props) {
   const r = 44;

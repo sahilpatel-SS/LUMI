@@ -67,9 +67,10 @@ export const passportData: PassportData = {
                 {
                   sessionNumber: 1,
                   score: 3,
-                  whatWentWell: 'Applied AI tools effectively during ideation.',
+                  whatWentWell:
+                    'Limited contribution during the session, resulting in insufficient evidence to assess this skill.',
                   improvements:
-                    'Deepen review of AI outputs before acceptance.',
+                    'You could document any AI trial or feedback loops., You could connect AI attributions to practical tasks.',
                 },
                 {
                   sessionNumber: 2,

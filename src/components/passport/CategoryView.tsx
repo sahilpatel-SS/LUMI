@@ -26,23 +26,22 @@ export function CategoryView({
     <div>
       <BackButton onClick={onBack} />
 
-      <div className="flex flex-col lg:flex-row gap-24">
+      <div className="flex flex-col lg:flex-row gap-24 justify-center">
         {/* Left — category gauge card */}
-        <div className="lg:w-80 flex-shrink-0">
+        <div className="flex flex-col gap-4">
           <div className="sp-card p-8 flex flex-col items-center gap-4">
-            <p className="text-sm font-medium text-dark text-center">
+            <p className="text-xl font-medium text-dark text-center">
               {cfg.label}
             </p>
             <CircularGauge
               score={categoryData.overallScore}
-              size={148}
               color={cfg.color}
             />
           </div>
         </div>
 
         {/* Right — skill rows */}
-        <div className="flex-1 flex flex-col gap-4">
+        <div className="flex flex-col gap-4">
           {categoryData.skills.map((skill) => (
             <button
               key={skill.id}
@@ -52,7 +51,7 @@ export function CategoryView({
               <span className="text-xl font-medium text-dark">
                 {skill.name}
               </span>
-              <span className="ml-4 flex-shrink-0 flex items-baseline">
+              <span className="flex-shrink-0 flex items-baseline">
                 <span className="text-xl font-medium text-dark">
                   {skill.score % 1 === 0 ? skill.score : skill.score.toFixed(1)}
                 </span>

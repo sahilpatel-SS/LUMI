@@ -43,12 +43,8 @@ export function OverviewView({
               onClick={() => onSelectCategory(key)}
               className="sp-card p-10 flex flex-col items-center gap-5 hover:shadow-card-md transition-shadow cursor-pointer"
             >
-              <p className="text-xl font-normal text-dark">{cfg.label}</p>
-              <CircularGauge
-                score={cat.overallScore}
-                size={160}
-                color={cfg.color}
-              />
+              <p className="text-xl font-medium text-dark">{cfg.label}</p>
+              <CircularGauge score={cat.overallScore} color={cfg.color} />
             </button>
           );
         })}
