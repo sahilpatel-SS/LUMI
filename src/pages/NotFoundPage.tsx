@@ -4,7 +4,7 @@ export function NotFoundPage() {
   const navigate = useNavigate();
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col items-center justify-center text-center px-4">
-      <p className="text-8xl font-black text-gray-100">404</p>
+      <p className="text-8xl font-black text-primary-100">404</p>
       <h1 className="text-2xl font-bold text-gray-900 mt-2">Page Not Found</h1>
       <p className="text-gray-500 mt-1 mb-6">
         This passport doesn't exist or is not public.

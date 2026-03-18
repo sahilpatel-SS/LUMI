@@ -34,12 +34,15 @@ A React implementation of the LUMI Skill Passport — a credential and skill-sha
 
 ## Prerequisites
 
-- Node.js 18+
+- Node.js 20+
 - npm 9+
+- Docker (optional, for containerised run)
 
 ---
 
 ## Getting Started
+
+### Local Development
 
 ```bash
 # Install dependencies
@@ -50,6 +53,14 @@ npm run dev
 ```
 
 The app will be available at `http://localhost:5173`.
+
+### Docker (Development)
+
+```bash
+docker compose up
+```
+
+The app will be available at `http://localhost:5173` with hot module replacement active.
 
 ---
 
