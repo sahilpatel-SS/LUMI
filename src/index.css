@@ -1,6 +1,26 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+@theme {
+  --font-family-sans: 'Poppins', system-ui, sans-serif;
+
+  --color-navy: #11102f;
+  --color-navy-hover: #1a1948;
+  --color-accent: #2dd4a0;
+  --color-accent-dim: #e6faf4;
+  --color-primary: #5b6af0;
+  --color-primary-dim: #eef0ff;
+  --color-page: #ffffff;
+  --color-dark: #252525;
+  --color-muted: #9f9f9f;
+  --color-silver: #c0c0c0;
+
+  --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.06), 0 4px 16px rgba(0, 0, 0, 0.06);
+  --shadow-card-md:
+    0 4px 16px rgba(0, 0, 0, 0.1), 0 8px 24px rgba(0, 0, 0, 0.08);
+  --shadow-dropdown: 0 8px 32px rgba(0, 0, 0, 0.14);
+
+  --radius-card: 16px;
+}
 
 @layer base {
   * {
@@ -35,6 +55,6 @@
     @apply bg-white rounded-card shadow-card;
   }
   .skill-row {
-    @apply sp-card flex items-center justify-between px-4 sm:px-6 py-4 sm:py-5 cursor-pointer hover:shadow-card-md transition-shadow duration-150 w-full text-left gap-4;
+    @apply bg-white rounded-card shadow-card flex items-center justify-between px-4 sm:px-6 py-4 sm:py-5 cursor-pointer hover:shadow-card-md transition-shadow duration-150 w-full text-left gap-4;
   }
 }

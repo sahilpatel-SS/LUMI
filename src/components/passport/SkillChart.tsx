@@ -35,73 +35,73 @@ export function SkillChart({ skillName, sessions }: Props) {
       {sessions.length > 0 ? (
         <>
           <div className="flex items-center gap-2 mb-4">
-            <span className="w-3 h-3 rounded-full bg-primary inline-block flex-shrink-0" />
+            <span className="w-3 h-3 rounded-full bg-primary inline-block shrink-0" />
             <span className="text-xs font-normal text-dark">{skillName}</span>
           </div>
 
-          <div className="h-36 sm:h-44">
-            <ResponsiveContainer width="100%" height="100%">
-              <LineChart
-                data={data}
-                margin={{ top: 4, right: 8, bottom: 18, left: -16 }}
-              >
-                <CartesianGrid strokeDasharray="3 3" stroke={COLOR_GRID} />
-                <XAxis
-                  dataKey="session"
-                  tick={{ fontSize: 10, fill: COLOR_MUTED }}
-                  label={{
-                    value: 'Session Number',
-                    position: 'insideBottom',
-                    offset: -10,
-                    fontSize: 10,
-                    fill: COLOR_MUTED,
-                  }}
-                />
-                <YAxis
-                  domain={[0, 5]}
-                  ticks={[0, 1, 2, 3, 4, 5]}
-                  tick={{ fontSize: 10, fill: COLOR_MUTED }}
-                  label={{
-                    value: 'Score',
-                    angle: -90,
-                    position: 'insideLeft',
-                    offset: 18,
-                    fontSize: 10,
-                    fill: COLOR_MUTED,
-                  }}
-                />
-                <Tooltip
-                  contentStyle={{
-                    fontSize: 12,
-                    borderRadius: 8,
-                    border: '1px solid #e5e7eb',
-                    boxShadow: '0 4px 12px rgba(0,0,0,0.08)',
-                    fontFamily: 'Poppins, sans-serif',
-                  }}
-                  formatter={(v) => [v, 'Score']}
-                  labelFormatter={(l) => `Session ${String(l)}`}
-                />
-                <Line
-                  type="monotone"
-                  dataKey="score"
-                  stroke={COLOR_ACCENT}
-                  strokeWidth={2}
-                  dot={{
-                    r: 4,
-                    fill: COLOR_ACCENT,
-                    stroke: 'white',
-                    strokeWidth: 2,
-                  }}
-                  activeDot={{
-                    r: 6,
-                    fill: COLOR_PRIMARY,
-                    stroke: 'white',
-                    strokeWidth: 2,
-                  }}
-                />
-              </LineChart>
-            </ResponsiveContainer>
-          </div>
+          <ResponsiveContainer width="100%" height={176}>
+            <LineChart
+              data={data}
+              margin={{ top: 4, right: 8, bottom: 18, left: -16 }}
+            >
+              <CartesianGrid strokeDasharray="3 3" stroke={COLOR_GRID} />
+              <XAxis
+                dataKey="session"
+                tick={{ fontSize: 10, fill: COLOR_MUTED }}
+                label={{
+                  value: 'Session Number',
+                  position: 'insideBottom',
+                  offset: -10,
+                  fontSize: 10,
+                  fill: COLOR_MUTED,
+                }}
+              />
+              <YAxis
+                domain={[0, 5]}
+                ticks={[0, 1, 2, 3, 4, 5]}
+                tick={{ fontSize: 10, fill: COLOR_MUTED }}
+                label={{
+                  value: 'Score',
+                  angle: -90,
+                  position: 'insideLeft',
+                  offset: 18,
+                  fontSize: 10,
+                  fill: COLOR_MUTED,
+                  textAnchor: 'middle',
+                  dx: 12,
+                }}
+              />
+              <Tooltip
+                contentStyle={{
+                  fontSize: 12,
+                  borderRadius: 8,
+                  border: '1px solid #e5e7eb',
+                  boxShadow: '0 4px 12px rgba(0,0,0,0.08)',
+                  fontFamily: 'Poppins, sans-serif',
+                }}
+                formatter={(v) => [v, 'Score']}
+                labelFormatter={(l) => `Session ${String(l)}`}
+              />
+              <Line
+                type="monotone"
+                dataKey="score"
+                stroke={COLOR_ACCENT}
+                strokeWidth={2}
+                dot={{
+                  r: 4,
+                  fill: COLOR_ACCENT,
+                  stroke: 'white',
+                  strokeWidth: 2,
+                }}
+                activeDot={{
+                  r: 6,
+                  fill: COLOR_PRIMARY,
+                  stroke: 'white',
+                  strokeWidth: 2,
+                }}
+              />
+            </LineChart>
+          </ResponsiveContainer>
         </>
       ) : (
         <p className="text-sm text-muted text-center py-4">

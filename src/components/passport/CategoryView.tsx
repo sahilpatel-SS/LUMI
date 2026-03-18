@@ -28,7 +28,7 @@ export function CategoryView({
 
       <div className="flex flex-col lg:flex-row gap-8 lg:gap-10">
         {/* Left — category gauge card */}
-        <div className="lg:w-72 flex-shrink-0">
+        <div className="lg:w-72 shrink-0">
           <div className="sp-card p-6 sm:p-8 flex flex-col items-center gap-4">
             <p className="text-sm sm:text-base font-medium text-dark text-center">
               {cfg.label}
@@ -52,7 +52,7 @@ export function CategoryView({
               <span className="text-base sm:text-xl font-medium text-dark text-left">
                 {skill.name}
               </span>
-              <span className="flex-shrink-0 flex items-baseline">
+              <span className="shrink-0 flex items-baseline">
                 <span className="text-base sm:text-xl font-medium text-dark">
                   {skill.score % 1 === 0 ? skill.score : skill.score.toFixed(1)}
                 </span>

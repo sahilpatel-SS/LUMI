@@ -14,7 +14,13 @@
       "Bash(npx eslint:*)",
       "Bash(ls:*)",
       "Bash(npx prettier:*)",
-      "Bash(npx tsc:*)"
+      "Bash(npx tsc:*)",
+      "Bash(npm uninstall:*)",
+      "Bash(npm view:*)",
+      "Bash(node:*)",
+      "Bash(chmod +x /Users/sahilpatel/Project/LUMI-TASK-1/.husky/pre-commit)",
+      "Bash(npm list:*)",
+      "Bash(git:*)"
     ]
   }
 }

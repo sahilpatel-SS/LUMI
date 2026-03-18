@@ -125,7 +125,7 @@ export function OverviewView({
                 </div>
                 <button
                   aria-label={`View image for ${inv.title}`}
-                  className="flex-shrink-0 w-20 h-16 sm:w-28 sm:h-20 rounded-xl overflow-hidden bg-gray-100 transition-opacity cursor-default"
+                  className="shrink-0 w-20 h-16 sm:w-28 sm:h-20 rounded-xl overflow-hidden bg-gray-100 transition-opacity cursor-default"
                 >
                   <img
                     src={inv.imageUrl}

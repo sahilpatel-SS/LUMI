@@ -24,7 +24,7 @@ export function SkillDetailView({ skill, onBack }: Props) {
             <span className="text-lg sm:text-2xl font-medium text-dark">
               {skill.name}
             </span>
-            <span className="text-lg sm:text-2xl font-medium text-dark flex-shrink-0">
+            <span className="text-lg sm:text-2xl font-medium text-dark shrink-0">
               {skill.score % 1 === 0 ? skill.score : skill.score.toFixed(1)}
             </span>
           </div>

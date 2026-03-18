@@ -15,7 +15,7 @@ export function Header({ personName, onInfoClick }: Props) {
       {/* ── Mobile bar (< lg) ── */}
       <div className="flex lg:hidden items-center justify-between px-4 py-4">
         {/* Logo */}
-        <div className="flex-shrink-0 w-20">
+        <div className="shrink-0 w-20">
           <img
             src={LUMI_LOGO}
             alt="Lumi"
@@ -30,7 +30,7 @@ export function Header({ personName, onInfoClick }: Props) {
           </h1>
           <button
             onClick={onInfoClick}
-            className="text-white hover:text-white/80 transition-colors flex-shrink-0"
+            className="text-white hover:text-white/80 transition-colors shrink-0"
             title="What the scores mean"
           >
             <InfoIcon size={14} />
@@ -38,7 +38,7 @@ export function Header({ personName, onInfoClick }: Props) {
         </div>
 
         {/* Hamburger */}
-        <div className="flex-shrink-0 w-20 flex justify-end">
+        <div className="shrink-0 w-20 flex justify-end">
           <button
             onClick={() => setExpanded((v) => !v)}
             className="text-white hover:text-white/80 transition-colors"
@@ -53,7 +53,7 @@ export function Header({ personName, onInfoClick }: Props) {
       <div className="hidden lg:block mx-auto px-8 pt-14">
         <div className="flex items-start gap-6">
           {/* Logo */}
-          <div className="flex-shrink-0">
+          <div className="shrink-0">
             <img
               src={LUMI_LOGO}
               alt="Lumi"
@@ -72,7 +72,7 @@ export function Header({ personName, onInfoClick }: Props) {
                   </h1>
                   <button
                     onClick={onInfoClick}
-                    className="text-white hover:text-white/80 transition-colors flex-shrink-0"
+                    className="text-white hover:text-white/80 transition-colors shrink-0"
                     title="What the scores mean"
                   >
                     <InfoIcon size={16} />
@@ -87,7 +87,7 @@ export function Header({ personName, onInfoClick }: Props) {
               </div>
 
               {/* Social icons */}
-              <div className="flex items-center gap-3 flex-shrink-0">
+              <div className="flex items-center gap-3 shrink-0">
                 {socialLinks.map((link) => (
                   <button
                     key={link.url}

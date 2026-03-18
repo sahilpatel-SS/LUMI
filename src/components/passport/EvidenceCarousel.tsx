@@ -99,7 +99,7 @@ export function EvidenceCarousel({ label, images }: Props) {
               key={i}
               onClick={() => setModalIdx(i)}
               aria-label={`Open evidence image ${i + 1} of ${images.length}`}
-              className="flex-shrink-0 w-36 h-28 sm:w-48 sm:h-36 rounded-xl overflow-hidden border border-gray-200 bg-gray-50 shadow-sm hover:shadow-card hover:scale-[1.02] transition-all cursor-pointer"
+              className="shrink-0 w-36 h-28 sm:w-48 sm:h-36 rounded-xl overflow-hidden border border-gray-200 bg-gray-50 shadow-xs hover:shadow-card hover:scale-[1.02] transition-all cursor-pointer"
             >
               <img
                 src={src}

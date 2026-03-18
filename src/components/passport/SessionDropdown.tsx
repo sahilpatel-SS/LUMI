@@ -76,7 +76,7 @@ export function SessionDropdown({
                     : 'text-dark font-bold hover:bg-gray-50'
                 }`}
               >
-                <span className="w-4 flex-shrink-0">
+                <span className="w-4 shrink-0">
                   {t.id === activeTestId && (
                     <Check size={13} className="text-primary" />
                   )}
