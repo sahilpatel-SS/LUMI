@@ -12,7 +12,6 @@ export interface TestSkill {
   description: string;
   sessions: SkillSession[];
   evidence: string[];
-  testingEvidence?: string[];
 }
 
 export interface CategoryData {

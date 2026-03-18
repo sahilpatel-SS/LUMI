@@ -18,7 +18,7 @@ export function SkillDetailView({ skill, onBack }: Props) {
       <BackButton onClick={onBack} />
       <div className="flex flex-col lg:flex-row gap-6 lg:gap-10">
         {/* Left column */}
-        <div className="flex flex-col gap-4 lg:flex-1">
+        <div className="flex flex-col gap-4 flex-1 min-w-0">
           {/* Skill name + score */}
           <div className="sp-card p-4 sm:p-5 flex items-center justify-between gap-4">
             <span className="text-lg sm:text-2xl font-medium text-dark">
@@ -40,31 +40,14 @@ export function SkillDetailView({ skill, onBack }: Props) {
           </div>
 
           {/* Supporting Evidence */}
-          {skill.evidence.length > 0 && (
-            <EvidenceCarousel
-              label="Supporting Evidence:"
-              images={skill.evidence}
-            />
-          )}
-
-          {/* Testing Evidence */}
-          {skill.testingEvidence && skill.testingEvidence.length > 0 && (
-            <EvidenceCarousel
-              label="(Testing) Supporting Evidence:"
-              images={skill.testingEvidence}
-            />
-          )}
-
-          {/* Empty evidence label */}
-          {skill.evidence.length === 0 && (
-            <p className="text-base sm:text-lg font-medium text-dark">
-              Supporting Evidence:
-            </p>
-          )}
+          <EvidenceCarousel
+            label="Supporting Evidence:"
+            images={skill.evidence}
+          />
         </div>
 
-        {/* Right column */}
-        <div className="flex flex-col gap-4 lg:flex-1">
+        {/* Right column — equal split with left */}
+        <div className="flex flex-col gap-4 flex-1 min-w-0">
           <SkillChart skillName={skill.name} sessions={skill.sessions} />
 
           {skill.sessions.length > 0 ? (

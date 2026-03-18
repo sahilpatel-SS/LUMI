@@ -42,7 +42,7 @@ export function SessionDropdown({
         <button
           onClick={() => !disabled && setOpen((v) => !v)}
           disabled={disabled}
-          className={`flex items-center gap-2 text-lg sm:text-2xl font-bold transition-opacity ${
+          className={`flex items-center gap-2 text-lg sm:text-2xl font-semibold transition-opacity disabled:text-muted disabled:opacity-100 ${
             disabled
               ? 'text-muted opacity-60 cursor-not-allowed'
               : 'text-primary cursor-pointer hover:opacity-80'

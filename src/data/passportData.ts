@@ -1,18 +1,6 @@
 import { Globe, Instagram, Linkedin, Youtube } from 'lucide-react';
 import type { PassportData, CategoryKey } from '../types/passport';
 
-/* ─── placeholder images ─── */
-const ev = (bg: string, label: string) =>
-  `https://placehold.co/300x200/${bg}/374151?text=${encodeURIComponent(label)}`;
-
-const Y1 = ev('fef9c3', 'Problem Statement');
-const Y2 = ev('fef3c7', 'Workshop Notes');
-const B1 = ev('dbeafe', 'Solution Research');
-const B2 = ev('ede9fe', 'AI Analysis');
-const G1 = ev('dcfce7', 'Design Prototype');
-const CERT = ev('f0fdf4', 'Certificate');
-const MAP = ev('e0f2fe', 'Innovation Map');
-
 /* ─── score rubric ─── */
 export const SCORE_RUBRIC = [
   { score: 1, meaning: 'No evidence / struggles to demonstrate the skill' },
@@ -43,6 +31,12 @@ export const CATEGORY_CONFIG: Record<
   domainSkills: { label: 'Domain Skills', color: '#0B1232' },
 };
 
+const getDummyImages = (count: number, seed: number) =>
+  Array.from(
+    { length: count },
+    (_, i) => `https://picsum.photos/1080?random=${seed + i}`
+  );
+
 /* ─── main passport data ─── */
 export const passportData: PassportData = {
   personName: 'Emily (TL A)',
@@ -56,12 +50,12 @@ export const passportData: PassportData = {
       date: 'Oct 2025',
       categories: {
         augmentedIntelligence: {
-          overallScore: 3.1,
+          overallScore: 2.4,
           skills: [
             {
               id: 't1-haic',
               name: 'Human-AI Collaboration',
-              score: 3.2,
+              score: 2.9,
               description:
                 'Getting the best of both human judgement and machine capability.',
               sessions: [
@@ -90,15 +84,32 @@ export const passportData: PassportData = {
                     'Document AI-assisted decisions for reflection.',
                 },
               ],
-              evidence: [Y1, B1],
-              testingEvidence: [Y2],
+              evidence: getDummyImages(2, 10),
             },
             {
               id: 't1-prompting',
               name: 'Effective Prompting',
-              score: 3.0,
+              score: 2.7,
               description:
-                'Crafting clear and purposeful instructions to get the best output from AI models.',
+                'Turning tacit know-how into instructions that make machines genuinely useful.',
+              sessions: [],
+              evidence: getDummyImages(4, 30),
+            },
+            {
+              id: 't1-xai',
+              name: 'Explainable-AI',
+              score: 2,
+              description:
+                'Making the machine’s reasoning clear enough to trust—or challenge.',
+              sessions: [],
+              evidence: getDummyImages(5, 40),
+            },
+            {
+              id: 't1-ethical',
+              name: 'Ethical Use of AI',
+              score: 2.2,
+              description:
+                'Ensuring AI serves people fairly, transparently and lawfully—by default.',
               sessions: [
                 {
                   sessionNumber: 1,
@@ -114,17 +125,17 @@ export const passportData: PassportData = {
                     'Explore chain-of-thought prompting techniques.',
                 },
               ],
-              evidence: [B1],
+              evidence: getDummyImages(6, 50),
             },
           ],
         },
         durableSkills: {
-          overallScore: 3.3,
+          overallScore: 3.1,
           skills: [
             {
               id: 't1-critical',
               name: 'Critical Thinking',
-              score: 3.5,
+              score: 2.8,
               description:
                 'The discipline of thinking clearly when it matters most.',
               sessions: [
@@ -144,7 +155,7 @@ export const passportData: PassportData = {
                     'Consider second-order consequences of decisions.',
                 },
               ],
-              evidence: [Y1],
+              evidence: getDummyImages(3, 60),
             },
             {
               id: 't1-design',
@@ -167,12 +178,21 @@ export const passportData: PassportData = {
                     'Explore more divergent ideas before converging.',
                 },
               ],
-              evidence: [G1],
+              evidence: getDummyImages(2, 70),
+            },
+            {
+              id: 't1-resilience',
+              name: 'Resilience & Agility',
+              score: 2.1,
+              description:
+                'Adapting effectively to change, setbacks, and uncertainty.',
+              sessions: [],
+              evidence: getDummyImages(4, 80),
             },
             {
               id: 't1-empathy',
               name: 'Empathy',
-              score: 2.5,
+              score: 3.5,
               description:
                 'Understanding and sharing the feelings and perspectives of others.',
               sessions: [
@@ -191,7 +211,64 @@ export const passportData: PassportData = {
                     'Translate empathy more directly into design decisions.',
                 },
               ],
-              evidence: [],
+              evidence: getDummyImages(3, 90),
+            },
+            {
+              id: 't1-entrepreneurial',
+              name: 'Entrepreneurial Mindset',
+              score: 2.4,
+              description:
+                'Identifying opportunities and taking initiative to create value.',
+              sessions: [
+                {
+                  sessionNumber: 1,
+                  score: 2,
+                  whatWentWell: 'Noted market gaps and potential solutions.',
+                  improvements: 'Explore real-world user feedback sources.',
+                },
+                {
+                  sessionNumber: 2,
+                  score: 3,
+                  whatWentWell: 'Identified potential business opportunities.',
+                  improvements: 'Validate assumptions with market research.',
+                },
+                {
+                  sessionNumber: 3,
+                  score: 4,
+                  whatWentWell: 'Developed a clear business model.',
+                  improvements: 'Refine financial projections with real data.',
+                },
+              ],
+              evidence: getDummyImages(5, 100),
+            },
+            {
+              id: 't1-collab',
+              name: 'Collaborative Problem Solving',
+              score: 3,
+              description:
+                'Working with others to tackle complex challenges effectively.',
+              sessions: [
+                {
+                  sessionNumber: 1,
+                  score: 3,
+                  whatWentWell: 'Collaborated effectively on user research.',
+                  improvements:
+                    'Iterate on problem definition with stakeholders.',
+                },
+                {
+                  sessionNumber: 8,
+                  score: 3,
+                  whatWentWell: 'Shared insights effectively with team.',
+                  improvements: 'Use visual aids to support discussions.',
+                },
+                {
+                  sessionNumber: 10,
+                  score: 4,
+                  whatWentWell: 'Collaborated on solution development.',
+                  improvements: 'Document decision-making processes.',
+                },
+              ],
+              evidence: getDummyImages(4, 110),
             },
           ],
         },
@@ -253,8 +330,7 @@ export const passportData: PassportData = {
                     'Deepen understanding of AI workflow integration.',
                 },
               ],
-              evidence: [Y1, Y2, B1],
-              testingEvidence: [Y1, Y2],
+              evidence: getDummyImages(3, 200),
             },
             {
               id: 't2-prompting',
@@ -279,14 +355,14 @@ export const passportData: PassportData = {
                     'Prompts could be more specific and context-rich.',
                 },
               ],
-              evidence: [B1],
+              evidence: getDummyImages(4, 220),
             },
             {
               id: 't2-xai',
               name: 'Explainable-AI',
               score: 1.9,
               description:
-                'Understanding and communicating how AI systems make decisions.',
+                'Making the machine’s reasoning clear enough to trust—or challenge.',
               sessions: [
                 {
                   sessionNumber: 1,
@@ -297,14 +373,14 @@ export const passportData: PassportData = {
                     'Use visual tools to support AI explanations. Seek feedback on clarity.',
                 },
               ],
-              evidence: [],
+              evidence: getDummyImages(5, 230),
             },
             {
               id: 't2-ethical',
               name: 'Ethical Use of AI',
               score: 2.2,
               description:
-                'Applying AI responsibly, fairly, and with consideration for societal impact.',
+                'Ensuring AI serves people fairly, transparently and lawfully—by default.',
               sessions: [
                 {
                   sessionNumber: 1,
@@ -315,7 +391,7 @@ export const passportData: PassportData = {
                     'Explore AI bias literature more deeply. Document ethical reasoning in outputs.',
                 },
               ],
-              evidence: [],
+              evidence: getDummyImages(4, 240),
             },
           ],
         },
@@ -325,7 +401,7 @@ export const passportData: PassportData = {
             {
               id: 't2-critical',
               name: 'Critical Thinking',
-              score: 2.8,
+              score: 2.6,
               description:
                 'The discipline of thinking clearly when it matters most.',
               sessions: [
@@ -365,7 +441,7 @@ export const passportData: PassportData = {
                     'Build stronger evidence chains for conclusions.',
                 },
               ],
-              evidence: [Y1, B1],
+              evidence: getDummyImages(3, 250),
             },
             {
               id: 't2-design',
@@ -388,12 +464,12 @@ export const passportData: PassportData = {
                     'Explore more divergent ideas before converging.',
                 },
               ],
-              evidence: [G1],
+              evidence: getDummyImages(2, 260),
             },
             {
               id: 't2-resilience',
               name: 'Resilience & Agility',
-              score: 2.1,
+              score: 1.9,
               description:
                 'Adapting effectively to change, setbacks, and uncertainty.',
               sessions: [
@@ -404,12 +480,12 @@ export const passportData: PassportData = {
                   improvements: 'Build more structured recovery plans.',
                 },
               ],
-              evidence: [],
+              evidence: getDummyImages(4, 270),
             },
             {
               id: 't2-empathy',
               name: 'Empathy',
-              score: 3.5,
+              score: 3.2,
               description:
                 'Understanding and sharing the feelings and perspectives of others.',
               sessions: [
@@ -428,7 +504,7 @@ export const passportData: PassportData = {
                     'Translate empathy more directly into design decisions.',
                 },
               ],
-              evidence: [],
+              evidence: getDummyImages(3, 280),
             },
             {
               id: 't2-entrepreneurial',
@@ -445,12 +521,12 @@ export const passportData: PassportData = {
                     'Validate assumptions with user research. Develop a clearer value proposition.',
                 },
               ],
-              evidence: [],
+              evidence: getDummyImages(5, 290),
             },
             {
               id: 't2-collab',
               name: 'Collaborative Problem Solving',
-              score: 3.0,
+              score: 3.2,
               description:
                 'Working with others to tackle complex challenges effectively.',
               sessions: [
@@ -462,7 +538,7 @@ export const passportData: PassportData = {
                     'Ensure all voices are included. Practice structured facilitation techniques.',
                 },
               ],
-              evidence: [],
+              evidence: getDummyImages(4, 300),
             },
           ],
         },
@@ -484,37 +560,35 @@ export const passportData: PassportData = {
               name: 'Ethical AI Use',
               score: 0,
               description:
-                'Ensuring the fair, transparent, and responsible application of AI in decision-making and workflows.',
+                'Ensuring the fair, transparent, and responsible application of AI.',
               sessions: [],
-              evidence: [B2],
-              testingEvidence: [B2],
+              evidence: getDummyImages(2, 310),
             },
             {
               id: 't3-data-lit',
               name: 'AI Data Literacy',
               score: 0,
               description:
-                'Understanding how to read, interpret, and apply data in AI-powered environments.',
+                'Understanding how to interpret and apply data in AI systems.',
               sessions: [],
-              evidence: [B2],
+              evidence: getDummyImages(3, 320),
             },
             {
               id: 't3-ai-dm',
               name: 'AI Assisted Decision Making',
               score: 0,
               description:
-                'Turning tacit know-how into instructions that make machines genuinely useful.',
+                'Using AI insights to support better decision-making.',
               sessions: [],
-              evidence: [],
+              evidence: getDummyImages(4, 330),
             },
             {
               id: 't3-xai',
               name: 'Explainable AI',
               score: 0,
-              description:
-                'Understanding and being able to explain the rationale behind AI decisions in an accessible way.',
+              description: 'Understanding and explaining AI outputs clearly.',
               sessions: [],
-              evidence: [],
+              evidence: getDummyImages(3, 340),
             },
           ],
         },
@@ -525,37 +599,33 @@ export const passportData: PassportData = {
               id: 't3-resilience',
               name: 'Resilience, Adaptability & Agility',
               score: 0,
-              description:
-                'Adapting effectively to change, setbacks, and uncertainty.',
+              description: 'Adapting effectively to change and uncertainty.',
               sessions: [],
-              evidence: [],
+              evidence: getDummyImages(2, 350),
             },
             {
               id: 't3-empathy',
               name: 'Empathy',
               score: 0,
-              description:
-                'Understanding and sharing the feelings and perspectives of others.',
+              description: 'Understanding and sharing perspectives of others.',
               sessions: [],
-              evidence: [],
+              evidence: getDummyImages(3, 360),
             },
             {
               id: 't3-entrepreneurial',
               name: 'Entrepreneurial Thinking',
               score: 0,
-              description:
-                'Identifying opportunities and taking initiative to create value.',
+              description: 'Identifying opportunities and creating value.',
               sessions: [],
-              evidence: [],
+              evidence: getDummyImages(4, 370),
             },
             {
               id: 't3-comm',
               name: 'Effective Communication',
               score: 0,
-              description:
-                'Conveying ideas clearly and persuasively across audiences.',
+              description: 'Clearly conveying ideas across audiences.',
               sessions: [],
-              evidence: [],
+              evidence: getDummyImages(3, 380),
             },
           ],
         },
@@ -566,8 +636,7 @@ export const passportData: PassportData = {
               id: 't3-critical',
               name: 'Critical Thinking',
               score: 0,
-              description:
-                'The discipline of thinking clearly when it matters most.',
+              description: 'Thinking clearly and logically under uncertainty.',
               sessions: [],
               evidence: [],
             },
@@ -575,27 +644,25 @@ export const passportData: PassportData = {
               id: 't3-interpersonal',
               name: 'Interpersonal Skills',
               score: 0,
-              description: 'Building and maintaining productive relationships.',
+              description: 'Building effective working relationships.',
               sessions: [],
-              evidence: [],
+              evidence: getDummyImages(2, 400),
             },
             {
               id: 't3-leadership',
               name: 'Leadership',
               score: 0,
-              description:
-                'Inspiring and guiding individuals and teams toward shared goals.',
+              description: 'Guiding teams toward shared goals.',
               sessions: [],
-              evidence: [],
+              evidence: getDummyImages(4, 410),
             },
             {
               id: 't3-collab',
               name: 'Collaborative Problem Solving',
               score: 0,
-              description:
-                'Working with others to tackle complex challenges effectively.',
+              description: 'Working with others to solve complex problems.',
               sessions: [],
-              evidence: [],
+              evidence: getDummyImages(3, 420),
             },
           ],
         },
@@ -838,7 +905,11 @@ export const passportData: PassportData = {
   ],
 
   certificates: [
-    { id: 'cert1', title: 'Certificate of Distinction', imageUrl: CERT },
+    {
+      id: 'cert1',
+      title: 'Certificate of Distinction',
+      imageUrl: getDummyImages(4, 390)[0],
+    },
   ],
 
   innovations: [
@@ -848,7 +919,7 @@ export const passportData: PassportData = {
       completedOn: 'July 2025',
       subtitle: 'LLM vs SLM',
       tag: 'Financial Engineering',
-      imageUrl: MAP,
+      imageUrl: getDummyImages(4, 400)[0],
     },
   ],
 };

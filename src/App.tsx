@@ -6,17 +6,9 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        {/* Default route: redirect to demo passport */}
-        <Route
-          path="/"
-          element={
-            <Navigate
-              to="/passport/1740066201551x580292182525120400?Quest=1761867299707x217482195989430270"
-              replace
-            />
-          }
-        />
-        <Route path="/passport/:passportId" element={<PassportPage />} />
+        {/* Default route: redirect to passport */}
+        <Route path="/" element={<Navigate to="/passport" replace />} />
+        <Route path="/passport" element={<PassportPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </BrowserRouter>

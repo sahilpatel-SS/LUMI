@@ -1,4 +1,6 @@
+import { useState } from 'react';
 import { CircularGauge } from '../ui/CircularGauge';
+import { ImageModal } from '../ui/ImageModal';
 import { CATEGORY_CONFIG } from '../../data/passportData';
 import type {
   Test,
@@ -14,12 +16,19 @@ interface Props {
   onSelectCategory: (key: CategoryKey) => void;
 }
 
+interface ModalState {
+  url: string;
+  title: string;
+}
+
 export function OverviewView({
   test,
   certificates,
   innovations,
   onSelectCategory,
 }: Props) {
+  const [modal, setModal] = useState<ModalState | null>(null);
+
   const categoryKeys = (Object.keys(CATEGORY_CONFIG) as CategoryKey[]).filter(
     (k) => test.categories[k] !== undefined
   );
@@ -41,6 +50,7 @@ export function OverviewView({
             <button
               key={key}
               onClick={() => onSelectCategory(key)}
+              aria-label={`View ${cfg.label} skills — score ${cat.overallScore} out of 5`}
               className="sp-card p-6 sm:p-10 flex flex-col items-center gap-4 sm:gap-5 hover:shadow-card-md transition-shadow cursor-pointer"
             >
               <p className="text-base sm:text-xl font-medium text-dark text-center">
@@ -64,13 +74,18 @@ export function OverviewView({
           </h2>
           <div className="flex flex-wrap gap-4 sm:gap-5">
             {certificates.map((cert) => (
-              <div
+              <button
                 key={cert.id}
-                className="sp-card overflow-hidden w-full sm:w-56"
+                onClick={() =>
+                  setModal({ url: cert.imageUrl, title: cert.title })
+                }
+                aria-label={`View certificate: ${cert.title}`}
+                className="sp-card overflow-hidden w-full sm:w-56 text-left hover:shadow-card-md transition-shadow cursor-pointer"
               >
                 <img
                   src={cert.imageUrl}
                   alt={cert.title}
+                  loading="lazy"
                   className="w-full h-40 object-cover"
                 />
                 <div className="px-4 py-3">
@@ -78,7 +93,7 @@ export function OverviewView({
                     {cert.title}
                   </p>
                 </div>
-              </div>
+              </button>
             ))}
           </div>
         </div>
@@ -110,18 +125,31 @@ export function OverviewView({
                     {inv.tag}
                   </span>
                 </div>
-                <div className="flex-shrink-0 w-20 h-16 sm:w-28 sm:h-20 rounded-xl overflow-hidden bg-gray-100">
+                <button
+                  aria-label={`View image for ${inv.title}`}
+                  className="flex-shrink-0 w-20 h-16 sm:w-28 sm:h-20 rounded-xl overflow-hidden bg-gray-100 transition-opacity cursor-default"
+                >
                   <img
                     src={inv.imageUrl}
                     alt={inv.title}
+                    loading="lazy"
                     className="w-full h-full object-cover"
                   />
-                </div>
+                </button>
               </div>
             ))}
           </div>
         </div>
       )}
+
+      {/* Shared image modal */}
+      <ImageModal
+        imageUrl={modal?.url ?? ''}
+        isOpen={modal !== null}
+        onClose={() => setModal(null)}
+        title={modal?.title}
+        download={true}
+      />
     </div>
   );
 }
