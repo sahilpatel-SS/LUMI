@@ -4,12 +4,12 @@ interface Props { onClick: () => void }
 
 export function BackButton({ onClick }: Props) {
   return (
-    <div className="flex justify-end mb-5">
+    <div className="flex justify-end mb-6">
       <button
         onClick={onClick}
-        className="flex items-center gap-1.5 text-[13px] font-medium text-gray-600 hover:text-gray-900 transition-colors"
+        className="flex items-center gap-1.5 text-sm font-medium text-dark hover:opacity-60 transition-opacity"
       >
-        <CornerDownLeft size={14} />
+        <CornerDownLeft size={15} />
         Back
       </button>
     </div>

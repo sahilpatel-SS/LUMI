@@ -1,6 +1,6 @@
-import { useState } from 'react'
-import { passportData } from '../data/passportData'
-import type { Test, CategoryKey, TestSkill } from '../types/passport'
+import { useState } from 'react';
+import { passportData } from '../data/passportData';
+import type { Test, CategoryKey, TestSkill } from '../types/passport';
 import {
   Header,
   SessionDropdown,
@@ -8,89 +8,101 @@ import {
   CategoryView,
   SkillDetailView,
   ScoreModal,
-} from '../components/passport'
+} from '../components/passport';
 
-type ViewType = 'overview' | 'category' | 'skill'
+type ViewType = 'overview' | 'category' | 'skill';
 
 export function PassportPage() {
-  const data = passportData
+  const data = passportData;
 
-  const [selectedTestId, setSelectedTestId] = useState(data.tests[0].id)
-  const [view, setView] = useState<ViewType>('overview')
-  const [selectedCategoryKey, setSelectedCategoryKey] = useState<CategoryKey | null>(null)
-  const [selectedSkill, setSelectedSkill] = useState<TestSkill | null>(null)
-  const [scoreModalOpen, setScoreModalOpen] = useState(false)
+  const [selectedTestId, setSelectedTestId] = useState(data.tests[0].id);
+  const [view, setView] = useState<ViewType>('overview');
+  const [selectedCategoryKey, setSelectedCategoryKey] =
+    useState<CategoryKey | null>(null);
+  const [selectedSkill, setSelectedSkill] = useState<TestSkill | null>(null);
+  const [scoreModalOpen, setScoreModalOpen] = useState(false);
 
-  const isHome = view === 'overview'
-  const currentTest = data.tests.find(t => t.id === selectedTestId) ?? data.tests[0]
+  const isHome = view === 'overview';
+  const currentTest =
+    data.tests.find((t) => t.id === selectedTestId) ?? data.tests[0];
 
   const handleTestChange = (test: Test) => {
-    setSelectedTestId(test.id)
-    setView('overview')
-    setSelectedCategoryKey(null)
-    setSelectedSkill(null)
-  }
+    setSelectedTestId(test.id);
+    setView('overview');
+    setSelectedCategoryKey(null);
+    setSelectedSkill(null);
+  };
 
   const handleSelectCategory = (key: CategoryKey) => {
-    setSelectedCategoryKey(key)
-    setSelectedSkill(null)
-    setView('category')
-  }
+    setSelectedCategoryKey(key);
+    setSelectedSkill(null);
+    setView('category');
+  };
 
   const handleSelectSkill = (skill: TestSkill) => {
-    setSelectedSkill(skill)
-    setView('skill')
-  }
+    setSelectedSkill(skill);
+    setView('skill');
+  };
 
   const handleBack = () => {
     if (view === 'skill') {
-      setSelectedSkill(null)
-      setView('category')
+      setSelectedSkill(null);
+      setView('category');
     } else {
-      setSelectedCategoryKey(null)
-      setView('overview')
+      setSelectedCategoryKey(null);
+      setView('overview');
     }
-  }
+  };
 
-  const currentCategoryData =
-    selectedCategoryKey ? currentTest.categories[selectedCategoryKey] : null
+  const currentCategoryData = selectedCategoryKey
+    ? currentTest.categories[selectedCategoryKey]
+    : null;
 
   return (
-    <div className="min-h-screen bg-page">
-      <Header personName={data.personName} onInfoClick={() => setScoreModalOpen(true)} />
-
-      <SessionDropdown
-        tests={data.tests}
-        activeTestId={selectedTestId}
-        onChange={handleTestChange}
-        disabled={!isHome}
+    <div className='min-h-screen bg-page'>
+      <Header
+        personName={data.personName}
+        onInfoClick={() => setScoreModalOpen(true)}
       />
 
-      <main className="max-w-4xl mx-auto px-4 py-8">
-        {view === 'overview' && (
-          <OverviewView
-            test={currentTest}
-            certificates={data.certificates}
-            innovations={data.innovations}
-            onSelectCategory={handleSelectCategory}
-          />
-        )}
+      <main className='container mx-auto'>
+        <SessionDropdown
+          tests={data.tests}
+          activeTestId={selectedTestId}
+          onChange={handleTestChange}
+          disabled={!isHome}
+        />
+        <div className='px-8 py-8'>
+          {view === 'overview' && (
+            <OverviewView
+              test={currentTest}
+              certificates={data.certificates}
+              innovations={data.innovations}
+              onSelectCategory={handleSelectCategory}
+            />
+          )}
 
-        {view === 'category' && selectedCategoryKey && currentCategoryData && (
-          <CategoryView
-            categoryKey={selectedCategoryKey}
-            categoryData={currentCategoryData}
-            onBack={handleBack}
-            onSelectSkill={handleSelectSkill}
-          />
-        )}
+          {view === 'category' &&
+            selectedCategoryKey &&
+            currentCategoryData && (
+              <CategoryView
+                categoryKey={selectedCategoryKey}
+                categoryData={currentCategoryData}
+                onBack={handleBack}
+                onSelectSkill={handleSelectSkill}
+              />
+            )}
 
-        {view === 'skill' && selectedSkill && (
-          <SkillDetailView skill={selectedSkill} onBack={handleBack} />
-        )}
+          {view === 'skill' && selectedSkill && (
+            <SkillDetailView skill={selectedSkill} onBack={handleBack} />
+          )}
+        </div>
       </main>
 
-      <ScoreModal isOpen={scoreModalOpen} onClose={() => setScoreModalOpen(false)} />
+      <ScoreModal
+        isOpen={scoreModalOpen}
+        onClose={() => setScoreModalOpen(false)}
+      />
     </div>
-  )
+  );
 }
