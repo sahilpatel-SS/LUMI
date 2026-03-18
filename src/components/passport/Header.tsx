@@ -97,14 +97,17 @@ export function Header({ personName, onInfoClick }: Props) {
             <p>
               It&apos;s more than a certificate—it&apos;s a window into how
               someone thinks, learns, and solves problems.{' '}
-              <a
-                href='https://www.lumi.network'
-                target='_blank'
-                rel='noopener noreferrer'
-                className='underline hover:text-accent transition-colors'
-              >
-                🔗 www.lumi.network
-              </a>
+              <p>
+                🔗 Learn more at{' '}
+                <a
+                  href='https://www.lumi.network/'
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  className='underline hover:text-accent transition-colors'
+                >
+                  www.lumi.network
+                </a>
+              </p>
             </p>
           </div>
         </div>
