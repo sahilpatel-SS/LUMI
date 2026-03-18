@@ -1,6 +1,8 @@
-import { CornerDownLeft } from 'lucide-react'
+import { CornerDownLeft } from 'lucide-react';
 
-interface Props { onClick: () => void }
+interface Props {
+  onClick: () => void;
+}
 
 export function BackButton({ onClick }: Props) {
   return (
@@ -13,5 +15,5 @@ export function BackButton({ onClick }: Props) {
         Back
       </button>
     </div>
-  )
+  );
 }

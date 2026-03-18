@@ -1,2 +1,2 @@
-export * from './PassportPage'
-export * from './NotFoundPage'
+export * from './PassportPage';
+export * from './NotFoundPage';

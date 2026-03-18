@@ -1,9 +1,9 @@
-import { Modal } from '../ui/Modal'
-import { SCORE_RUBRIC } from '../../data/passportData'
+import { Modal } from '../ui/Modal';
+import { SCORE_RUBRIC } from '../../data/passportData';
 
 interface Props {
-  isOpen: boolean
-  onClose: () => void
+  isOpen: boolean;
+  onClose: () => void;
 }
 
 export function ScoreModal({ isOpen, onClose }: Props) {
@@ -17,7 +17,9 @@ export function ScoreModal({ isOpen, onClose }: Props) {
           </span>
         </div>
 
-        <h2 className="text-lg font-bold text-gray-900 mb-5">📊 What the Scores Mean</h2>
+        <h2 className="text-lg font-bold text-gray-900 mb-5">
+          📊 What the Scores Mean
+        </h2>
 
         <table className="w-full text-sm">
           <thead>
@@ -30,14 +32,21 @@ export function ScoreModal({ isOpen, onClose }: Props) {
           </thead>
           <tbody>
             {SCORE_RUBRIC.map((row, i) => (
-              <tr key={row.score} className={i > 0 ? 'border-t border-gray-100' : ''}>
-                <td className="py-3 font-semibold text-gray-900 align-top">{row.score}</td>
-                <td className="py-3 text-gray-700 leading-snug">{row.meaning}</td>
+              <tr
+                key={row.score}
+                className={i > 0 ? 'border-t border-gray-100' : ''}
+              >
+                <td className="py-3 font-semibold text-gray-900 align-top">
+                  {row.score}
+                </td>
+                <td className="py-3 text-gray-700 leading-snug">
+                  {row.meaning}
+                </td>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
     </Modal>
-  )
+  );
 }

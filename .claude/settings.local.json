@@ -8,7 +8,12 @@
       "Bash(curl -s \"https://platform.lumi.network/version-test/api/1.1/init/data?location=https%3A%2F%2Fplatform.lumi.network%2Fversion-test%2Fpassport_share%2F1740066201551x580292182525120400%3FQuest%3D1761867299707x217482195989430270%26innovation%3D%26index%3D%26score%3D100\")",
       "Bash(curl -s \"https://platform.lumi.network/version-test/api/1.1/init/data?location=https%3A%2F%2Fplatform.lumi.network%2Fversion-test%2Fpassport_share%2F1740066201551x580292182525120400%3FQuest%3D1761867299707x217482195989430270%26innovation%3D%26index%3D%26score%3D4\")",
       "Bash(rm -f /Users/sahilpatel/Project/LUMI-TASK-1/src/components/passport/*.tsx /Users/sahilpatel/Project/LUMI-TASK-1/src/components/passport/index.ts)",
-      "Bash(rm -f /Users/sahilpatel/Project/LUMI-TASK-1/src/components/ui/*.tsx /Users/sahilpatel/Project/LUMI-TASK-1/src/components/ui/index.ts)"
+      "Bash(rm -f /Users/sahilpatel/Project/LUMI-TASK-1/src/components/ui/*.tsx /Users/sahilpatel/Project/LUMI-TASK-1/src/components/ui/index.ts)",
+      "Bash(npm install:*)",
+      "Bash(npx husky:*)",
+      "Bash(npx eslint:*)",
+      "Bash(ls:*)",
+      "Bash(npx prettier:*)"
     ]
   }
 }

@@ -1,15 +1,24 @@
 import {
-  LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
-} from 'recharts'
-import type { SkillSession } from '../../types/passport'
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  ResponsiveContainer,
+} from 'recharts';
+import type { SkillSession } from '../../types/passport';
 
 interface Props {
-  skillName: string
-  sessions: SkillSession[]
+  skillName: string;
+  sessions: SkillSession[];
 }
 
 export function SkillChart({ skillName, sessions }: Props) {
-  const data = sessions.map(s => ({ session: s.sessionNumber, score: s.score }))
+  const data = sessions.map((s) => ({
+    session: s.sessionNumber,
+    score: s.score,
+  }));
 
   return (
     <div className="sp-card p-6">
@@ -24,21 +33,43 @@ export function SkillChart({ skillName, sessions }: Props) {
 
       <div className="h-44">
         <ResponsiveContainer width="100%" height="100%">
-          <LineChart data={data} margin={{ top: 4, right: 8, bottom: 18, left: -16 }}>
+          <LineChart
+            data={data}
+            margin={{ top: 4, right: 8, bottom: 18, left: -16 }}
+          >
             <CartesianGrid strokeDasharray="3 3" stroke="#f3f4f6" />
             <XAxis
               dataKey="session"
               tick={{ fontSize: 10, fill: '#9f9f9f' }}
-              label={{ value: 'Session Number', position: 'insideBottom', offset: -10, fontSize: 10, fill: '#9f9f9f' }}
+              label={{
+                value: 'Session Number',
+                position: 'insideBottom',
+                offset: -10,
+                fontSize: 10,
+                fill: '#9f9f9f',
+              }}
             />
             <YAxis
               domain={[0, 5]}
               ticks={[0, 1, 2, 3, 4, 5]}
               tick={{ fontSize: 10, fill: '#9f9f9f' }}
-              label={{ value: 'Score', angle: -90, position: 'insideLeft', offset: 18, fontSize: 10, fill: '#9f9f9f' }}
+              label={{
+                value: 'Score',
+                angle: -90,
+                position: 'insideLeft',
+                offset: 18,
+                fontSize: 10,
+                fill: '#9f9f9f',
+              }}
             />
             <Tooltip
-              contentStyle={{ fontSize: 12, borderRadius: 8, border: '1px solid #e5e7eb', boxShadow: '0 4px 12px rgba(0,0,0,0.08)', fontFamily: 'Poppins, sans-serif' }}
+              contentStyle={{
+                fontSize: 12,
+                borderRadius: 8,
+                border: '1px solid #e5e7eb',
+                boxShadow: '0 4px 12px rgba(0,0,0,0.08)',
+                fontFamily: 'Poppins, sans-serif',
+              }}
               formatter={(v) => [v, 'Score']}
               labelFormatter={(l) => `Session ${l}`}
             />
@@ -48,11 +79,16 @@ export function SkillChart({ skillName, sessions }: Props) {
               stroke="#2DD4A0"
               strokeWidth={2}
               dot={{ r: 4, fill: '#2DD4A0', stroke: 'white', strokeWidth: 2 }}
-              activeDot={{ r: 6, fill: '#5B6AF0', stroke: 'white', strokeWidth: 2 }}
+              activeDot={{
+                r: 6,
+                fill: '#5B6AF0',
+                stroke: 'white',
+                strokeWidth: 2,
+              }}
             />
           </LineChart>
         </ResponsiveContainer>
       </div>
     </div>
-  )
+  );
 }

@@ -1,1 +1,1 @@
-export * from './useQuestParams'
+export * from './useQuestParams';

@@ -25,10 +25,10 @@ export function CircularGauge({
   const fmt = (n: number) => (n % 1 === 0 ? String(n) : n.toFixed(1));
 
   return (
-    <div className='relative' style={{ width: size, height: size }}>
+    <div className="relative" style={{ width: size, height: size }}>
       <svg
-        viewBox='0 0 112 112'
-        className='w-full h-full'
+        viewBox="0 0 112 112"
+        className="w-full h-full"
         style={{ overflow: 'visible' }}
       >
         {/* Background track */}
@@ -36,10 +36,10 @@ export function CircularGauge({
           cx={cx}
           cy={cy}
           r={r}
-          fill='none'
-          stroke='#E5E7EB'
-          strokeWidth='9'
-          strokeLinecap='round'
+          fill="none"
+          stroke="#E5E7EB"
+          strokeWidth="9"
+          strokeLinecap="round"
           strokeDasharray={`${arc} ${C - arc}`}
           transform={`rotate(135, ${cx}, ${cy})`}
         />
@@ -49,10 +49,10 @@ export function CircularGauge({
             cx={cx}
             cy={cy}
             r={r}
-            fill='none'
+            fill="none"
             stroke={color}
-            strokeWidth='9'
-            strokeLinecap='round'
+            strokeWidth="9"
+            strokeLinecap="round"
             strokeDasharray={`${filled} ${C - filled}`}
             transform={`rotate(135, ${cx}, ${cy})`}
             style={{ transition: 'stroke-dasharray 0.6s ease' }}
@@ -70,8 +70,8 @@ export function CircularGauge({
       </svg>
 
       {/* Score centred */}
-      <div className='absolute inset-0 flex items-center justify-center'>
-        <span className='text-3xl font-medium text-dark leading-none select-none'>
+      <div className="absolute inset-0 flex items-center justify-center">
+        <span className="text-3xl font-medium text-dark leading-none select-none">
           {fmt(score)}/5
         </span>
       </div>

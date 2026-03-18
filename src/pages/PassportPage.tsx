@@ -59,20 +59,20 @@ export function PassportPage() {
     : null;
 
   return (
-    <div className='min-h-screen bg-page'>
+    <div className="min-h-screen bg-page">
       <Header
         personName={data.personName}
         onInfoClick={() => setScoreModalOpen(true)}
       />
 
-      <main className='container mx-auto'>
+      <main className="container mx-auto">
         <SessionDropdown
           tests={data.tests}
           activeTestId={selectedTestId}
           onChange={handleTestChange}
           disabled={!isHome}
         />
-        <div className='px-8 py-8'>
+        <div className="px-8 py-8">
           {view === 'overview' && (
             <OverviewView
               test={currentTest}

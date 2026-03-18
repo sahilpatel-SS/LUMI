@@ -1,6 +1,6 @@
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
-import { PassportPage } from './pages/PassportPage'
-import { NotFoundPage } from './pages/NotFoundPage'
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { PassportPage } from './pages/PassportPage';
+import { NotFoundPage } from './pages/NotFoundPage';
 
 function App() {
   return (
@@ -20,7 +20,7 @@ function App() {
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </BrowserRouter>
-  )
+  );
 }
 
-export default App
+export default App;

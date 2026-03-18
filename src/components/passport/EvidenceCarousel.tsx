@@ -1,15 +1,15 @@
-import { useState } from 'react'
-import { ImageModal } from '../ui/ImageModal'
+import { useState } from 'react';
+import { ImageModal } from '../ui/ImageModal';
 
 interface Props {
-  label: string
-  images: string[]
+  label: string;
+  images: string[];
 }
 
 export function EvidenceCarousel({ label, images }: Props) {
-  const [modalUrl, setModalUrl] = useState<string | null>(null)
+  const [modalUrl, setModalUrl] = useState<string | null>(null);
 
-  if (!images.length) return null
+  if (!images.length) return null;
 
   return (
     <div className="mb-6">
@@ -24,7 +24,11 @@ export function EvidenceCarousel({ label, images }: Props) {
             onClick={() => setModalUrl(src)}
             className="flex-shrink-0 w-48 h-36 rounded-xl overflow-hidden border border-gray-200 bg-gray-50 shadow-sm hover:shadow-card transition-shadow cursor-pointer"
           >
-            <img src={src} alt={`Evidence ${i + 1}`} className="w-full h-full object-cover" />
+            <img
+              src={src}
+              alt={`Evidence ${i + 1}`}
+              className="w-full h-full object-cover"
+            />
           </button>
         ))}
       </div>
@@ -38,5 +42,5 @@ export function EvidenceCarousel({ label, images }: Props) {
         onClose={() => setModalUrl(null)}
       />
     </div>
-  )
+  );
 }

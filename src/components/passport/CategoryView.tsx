@@ -26,11 +26,11 @@ export function CategoryView({
     <div>
       <BackButton onClick={onBack} />
 
-      <div className='flex flex-col lg:flex-row gap-24'>
+      <div className="flex flex-col lg:flex-row gap-24">
         {/* Left — category gauge card */}
-        <div className='lg:w-80 flex-shrink-0'>
-          <div className='sp-card p-8 flex flex-col items-center gap-4'>
-            <p className='text-sm font-medium text-dark text-center'>
+        <div className="lg:w-80 flex-shrink-0">
+          <div className="sp-card p-8 flex flex-col items-center gap-4">
+            <p className="text-sm font-medium text-dark text-center">
               {cfg.label}
             </p>
             <CircularGauge
@@ -42,21 +42,21 @@ export function CategoryView({
         </div>
 
         {/* Right — skill rows */}
-        <div className='flex-1 flex flex-col gap-4'>
+        <div className="flex-1 flex flex-col gap-4">
           {categoryData.skills.map((skill) => (
             <button
               key={skill.id}
               onClick={() => onSelectSkill(skill)}
-              className='skill-row'
+              className="skill-row"
             >
-              <span className='text-xl font-medium text-dark'>
+              <span className="text-xl font-medium text-dark">
                 {skill.name}
               </span>
-              <span className='ml-4 flex-shrink-0 flex items-baseline'>
-                <span className='text-xl font-medium text-dark'>
+              <span className="ml-4 flex-shrink-0 flex items-baseline">
+                <span className="text-xl font-medium text-dark">
                   {skill.score % 1 === 0 ? skill.score : skill.score.toFixed(1)}
                 </span>
-                <span className='text-xl font-medium text-silver'>/5</span>
+                <span className="text-xl font-medium text-silver">/5</span>
               </span>
             </button>
           ))}

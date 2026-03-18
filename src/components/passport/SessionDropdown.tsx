@@ -21,10 +21,7 @@ export function SessionDropdown({
   const activeTest = tests.find((t) => t.id === activeTestId) ?? tests[0];
 
   useEffect(() => {
-    if (disabled) {
-      setOpen(false);
-      return;
-    }
+    if (disabled) return;
     const fn = (e: MouseEvent) => {
       if (ref.current && !ref.current.contains(e.target as Node))
         setOpen(false);
@@ -34,8 +31,8 @@ export function SessionDropdown({
   }, [disabled]);
 
   return (
-    <div className='flex py-4'>
-      <div className='relative' ref={ref}>
+    <div className="flex py-4">
+      <div className="relative" ref={ref}>
         {/* Trigger button */}
         <button
           onClick={() => !disabled && setOpen((v) => !v)}
@@ -57,7 +54,7 @@ export function SessionDropdown({
 
         {/* Dropdown panel */}
         {open && !disabled && (
-          <div className='absolute top-full mt-2 z-30 min-w-[340px] py-2 bg-white rounded-xl shadow-dropdown border border-gray-100 overflow-hidden'>
+          <div className="absolute top-full mt-2 z-30 min-w-[340px] py-2 bg-white rounded-xl shadow-dropdown border border-gray-100 overflow-hidden">
             {tests.map((t) => (
               <button
                 key={t.id}
@@ -71,9 +68,9 @@ export function SessionDropdown({
                     : 'text-dark font-bold hover:bg-gray-50'
                 }`}
               >
-                <span className='w-4 flex-shrink-0'>
+                <span className="w-4 flex-shrink-0">
                   {t.id === activeTestId && (
-                    <Check size={13} className='text-primary' />
+                    <Check size={13} className="text-primary" />
                   )}
                 </span>
                 {t.name}
