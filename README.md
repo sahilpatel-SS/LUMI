@@ -1,73 +1,110 @@
-# React + TypeScript + Vite
+# LUMI Skill Passport
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React implementation of the LUMI Skill Passport — a credential and skill-sharing profile page that displays assessed skills, session progress, evidence, certificates, and innovations for a learner.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Features
 
-## React Compiler
+- **Passport Overview** — category score gauges with drill-down navigation
+- **Skill Detail View** — per-skill session progress chart, feedback cards, and evidence carousel
+- **Certificates & Awards** — image gallery with full-screen modal viewer and download support
+- **Innovations** — project showcase with metadata
+- **Responsive design** — mobile-first layout, adapts from 320px to widescreen
+- **Session switcher** — switch between multiple test sessions from the header
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## Tech Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+| Layer         | Library / Tool                                     |
+| ------------- | -------------------------------------------------- |
+| UI Framework  | React 19 + TypeScript 5.9                          |
+| Build Tool    | Vite 8                                             |
+| Styling       | Tailwind CSS v4 (CSS-based config)                 |
+| Charts        | Recharts 3                                         |
+| Icons         | Lucide React                                       |
+| Routing       | React Router DOM v7                                |
+| UI Primitives | Radix UI (Dialog, Tabs, Progress, Avatar, Tooltip) |
+| Linting       | ESLint 9 (flat config) + typescript-eslint         |
+| Formatting    | Prettier 3                                         |
+| Git Hooks     | Husky v9 + lint-staged                             |
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Prerequisites
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-]);
+- Node.js 18+
+- npm 9+
+
+---
+
+## Getting Started
+
+```bash
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+The app will be available at `http://localhost:5173`.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x';
-import reactDom from 'eslint-plugin-react-dom';
+---
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-]);
+## Available Scripts
+
+| Script                 | Description                          |
+| ---------------------- | ------------------------------------ |
+| `npm run dev`          | Start Vite dev server with HMR       |
+| `npm run build`        | Type-check and build for production  |
+| `npm run preview`      | Preview the production build locally |
+| `npm run lint`         | Run ESLint                           |
+| `npm run lint:fix`     | Run ESLint with auto-fix             |
+| `npm run format`       | Format all files with Prettier       |
+| `npm run format:check` | Check formatting without writing     |
+
+---
+
+## Project Structure
+
 ```
+src/
+├── components/
+│   ├── passport/          # Feature components
+│   │   ├── Header.tsx
+│   │   ├── SessionDropdown.tsx
+│   │   ├── OverviewView.tsx
+│   │   ├── CategoryView.tsx
+│   │   ├── SkillDetailView.tsx
+│   │   ├── SkillChart.tsx
+│   │   ├── EvidenceCarousel.tsx
+│   │   ├── FeedbackCard.tsx
+│   │   ├── ScoreModal.tsx
+│   │   └── BackButton.tsx
+│   └── ui/                # Reusable primitives
+│       ├── CircularGauge.tsx
+│       ├── ImageModal.tsx
+│       └── Modal.tsx
+├── pages/
+│   ├── PassportPage.tsx
+│   └── NotFoundPage.tsx
+├── data/
+│   └── passportData.ts    # Static mock data
+├── types/
+│   └── passport.ts        # TypeScript types
+├── utils/
+│   └── cn.ts              # Tailwind class merge helper
+└── hooks/                 # Custom React hooks
+```
+
+---
+
+## Pre-commit Hooks
+
+On every `git commit`, the following run automatically:
+
+1. **Prettier** — formats staged files
+2. **ESLint** — lints and auto-fixes staged `.ts` / `.tsx` files (fails on warnings)
+3. **TypeScript** — full project type-check via `tsc --noEmit`
