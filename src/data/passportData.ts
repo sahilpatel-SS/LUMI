@@ -51,7 +51,8 @@ export const passportData: PassportData = {
     /* ── Test 1: Multi Emails (Oct 2025) ── */
     {
       id: 't1',
-      name: 'Lumi-Test - Multi Emails Test (Oct 2025)',
+      testType: 'Lumi-Test',
+      name: 'Multi Emails Test (Oct 2025)',
       date: 'Oct 2025',
       categories: {
         augmentedIntelligence: {
@@ -200,7 +201,8 @@ export const passportData: PassportData = {
     /* ── Test 2: Investments (Oct 2025) ── */
     {
       id: 't2',
-      name: 'Lumi-Test - Investments (Oct 2025)',
+      testType: 'Lumi-Test',
+      name: 'Investments (Oct 2025)',
       date: 'Oct 2025',
       categories: {
         augmentedIntelligence: {
@@ -470,7 +472,8 @@ export const passportData: PassportData = {
     /* ── Test 3: Playground (Jul 2025) — all zeros ── */
     {
       id: 't3',
-      name: 'Lumi-Test - Playground (Jul 2025)',
+      testType: 'Lumi-Test',
+      name: 'Playground (Jul 2025)',
       date: 'Jul 2025',
       categories: {
         augmentedIntelligence: {
@@ -602,7 +605,8 @@ export const passportData: PassportData = {
     /* ── Test 4: Financial Engineering (Apr 2025) ── */
     {
       id: 't4',
-      name: 'Lumi-Test - Financial Engineering (Apr 2025)',
+      testType: 'Lumi-Test',
+      name: 'Financial Engineering (Apr 2025)',
       date: 'Apr 2025',
       categories: {
         augmentedIntelligence: {
@@ -745,7 +749,8 @@ export const passportData: PassportData = {
     /* ── Test 5: Cybertronic CIA (Apr 2025) ── */
     {
       id: 't5',
-      name: 'Lumi-Test - Cybertronic CIA (Apr 2025)',
+      testType: 'Lumi-Test',
+      name: 'Cybertronic CIA (Apr 2025)',
       date: 'Apr 2025',
       categories: {
         augmentedIntelligence: {

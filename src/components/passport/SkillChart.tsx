@@ -21,8 +21,8 @@ export function SkillChart({ skillName, sessions }: Props) {
   }));
 
   return (
-    <div className="sp-card p-6 border border-gray-300 max-w-lg">
-      <p className="text-base font-semibold text-black uppercase tracking-widest mb-3">
+    <div className="sp-card p-5 sm:p-6 border border-gray-300 w-full">
+      <p className="text-xs sm:text-base font-semibold text-black uppercase tracking-widest mb-3">
         Skill Progress
       </p>
 
@@ -31,7 +31,7 @@ export function SkillChart({ skillName, sessions }: Props) {
         <span className="text-xs font-normal text-dark">{skillName}</span>
       </div>
 
-      <div className="h-44">
+      <div className="h-36 sm:h-44">
         <ResponsiveContainer width="100%" height="100%">
           <LineChart
             data={data}

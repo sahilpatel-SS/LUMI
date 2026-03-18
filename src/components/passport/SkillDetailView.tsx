@@ -16,23 +16,25 @@ export function SkillDetailView({ skill, onBack }: Props) {
   return (
     <div>
       <BackButton onClick={onBack} />
-      <div className="flex flex-col lg:flex-row gap-24 justify-center">
+      <div className="flex flex-col lg:flex-row gap-6 lg:gap-12">
         {/* Left column */}
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-4 lg:flex-1">
           {/* Skill name + score */}
-          <div className="sp-card p-5 flex items-center justify-between gap-4">
-            <span className="text-2xl font-medium text-dark">{skill.name}</span>
-            <span className="text-2xl font-medium text-dark flex-shrink-0">
+          <div className="sp-card p-4 sm:p-5 flex items-center justify-between gap-4">
+            <span className="text-lg sm:text-2xl font-medium text-dark">
+              {skill.name}
+            </span>
+            <span className="text-lg sm:text-2xl font-medium text-dark flex-shrink-0">
               {skill.score % 1 === 0 ? skill.score : skill.score.toFixed(1)}
             </span>
           </div>
 
           {/* Description */}
-          <div className="sp-card p-5">
-            <p className="text-xl font-medium text-dark mb-2">
+          <div className="sp-card p-4 sm:p-5">
+            <p className="text-base sm:text-xl font-medium text-dark mb-2">
               Skill Description
             </p>
-            <p className="text-sm font-normal text-muted leading-relaxed">
+            <p className="text-xs sm:text-sm font-normal text-muted leading-relaxed">
               {skill.description}
             </p>
           </div>
@@ -55,14 +57,14 @@ export function SkillDetailView({ skill, onBack }: Props) {
 
           {/* Empty evidence label */}
           {skill.evidence.length === 0 && (
-            <p className="text-lg font-medium text-dark">
+            <p className="text-base sm:text-lg font-medium text-dark">
               Supporting Evidence:
             </p>
           )}
         </div>
 
         {/* Right column */}
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-4 lg:flex-1">
           <SkillChart skillName={skill.name} sessions={skill.sessions} />
 
           {skill.sessions.length > 0 ? (

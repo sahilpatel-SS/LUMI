@@ -13,23 +13,23 @@ export function Header({ personName, onInfoClick }: Props) {
   return (
     <header className="bg-navy w-full text-white relative z-10">
       {/* ── Main bar ── */}
-      <div className="mx-auto px-8 pt-14 flex items-start gap-6">
+      <div className="mx-auto px-4 sm:px-8 pt-8 sm:pt-14 flex items-start gap-4 sm:gap-6">
         {/* Logo */}
         <div className="flex-shrink-0">
           <img
             src={LUMI_LOGO}
             alt="Lumi"
-            className="h-11 w-auto object-contain"
+            className="h-8 sm:h-11 w-auto object-contain"
           />
         </div>
 
         {/* Title + subtitle */}
         <div className="flex-1 min-w-0 border-b-2 border-white pb-3">
-          <div className="flex items-center justify-between gap-4">
+          <div className="flex items-start sm:items-center justify-between gap-3">
             {/* Left */}
             <div className="min-w-0">
               <div className="flex items-center gap-2 flex-wrap">
-                <h1 className="text-[28px] font-semibold text-white leading-tight">
+                <h1 className="text-lg sm:text-2xl lg:text-[28px] font-semibold text-white leading-tight">
                   {personName}&apos;s Skill Passport
                 </h1>
                 <button
@@ -40,7 +40,7 @@ export function Header({ personName, onInfoClick }: Props) {
                   <InfoIcon size={16} />
                 </button>
               </div>
-              <p className="mt-1 text-sm font-semibold text-muted leading-relaxed max-w-5xl">
+              <p className="mt-1 text-xs sm:text-sm font-semibold text-muted leading-relaxed max-w-5xl hidden sm:block">
                 Welcome to the skill overview. Here you can see how the
                 participant has performed in developing their AI, Durable and
                 Domain Skills compared to participants across the global Lumi
@@ -48,8 +48,8 @@ export function Header({ personName, onInfoClick }: Props) {
               </p>
             </div>
 
-            {/* Right: social icons */}
-            <div className="flex items-center gap-3 flex-shrink-0">
+            {/* Right: social icons — hidden on mobile */}
+            <div className="hidden sm:flex items-center gap-3 flex-shrink-0">
               {socialLinks.map((link) => (
                 <button
                   key={link.url}
@@ -67,7 +67,7 @@ export function Header({ personName, onInfoClick }: Props) {
       <div className="mx-auto flex justify-end">
         <button
           onClick={() => setExpanded((v) => !v)}
-          className="px-8 py-1.5 text-white transition-colors"
+          className="px-4 sm:px-8 py-1.5 text-white transition-colors"
           aria-label="Toggle description"
         >
           {expanded ? (
@@ -81,7 +81,7 @@ export function Header({ personName, onInfoClick }: Props) {
       {/* ── Description overlay — drops below header, overlays page content ── */}
       {expanded && (
         <div className="absolute top-full left-0 right-0 bg-navy z-20 shadow-2xl">
-          <div className="mx-auto px-8 pb-6 space-y-4 text-sm text-white leading-relaxed">
+          <div className="mx-auto px-4 sm:px-8 pb-6 space-y-4 text-sm text-white leading-relaxed">
             <p>
               At Lumi, we ignite potential by helping people build the skills
               that matter most—creative problem-solving, AI fluency, and

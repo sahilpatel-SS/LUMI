@@ -30,6 +30,7 @@ export type CategoryKey = keyof TestCategories;
 
 export interface Test {
   id: string;
+  testType: string;
   name: string;
   date: string;
   categories: TestCategories;
