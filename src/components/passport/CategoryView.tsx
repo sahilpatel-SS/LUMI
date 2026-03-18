@@ -23,10 +23,10 @@ export function CategoryView({
   const cfg = CATEGORY_CONFIG[categoryKey];
 
   return (
-    <div>
+    <div className="max-w-4xl mx-auto">
       <BackButton onClick={onBack} />
 
-      <div className="flex flex-col lg:flex-row gap-8 lg:gap-12">
+      <div className="flex flex-col lg:flex-row gap-8 lg:gap-10">
         {/* Left — category gauge card */}
         <div className="lg:w-72 flex-shrink-0">
           <div className="sp-card p-6 sm:p-8 flex flex-col items-center gap-4">

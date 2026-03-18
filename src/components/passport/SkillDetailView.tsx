@@ -14,9 +14,9 @@ export function SkillDetailView({ skill, onBack }: Props) {
   const [activeIdx, setActiveIdx] = useState(0);
 
   return (
-    <div>
+    <div className="max-w-5xl mx-auto">
       <BackButton onClick={onBack} />
-      <div className="flex flex-col lg:flex-row gap-6 lg:gap-12">
+      <div className="flex flex-col lg:flex-row gap-6 lg:gap-10">
         {/* Left column */}
         <div className="flex flex-col gap-4 lg:flex-1">
           {/* Skill name + score */}
