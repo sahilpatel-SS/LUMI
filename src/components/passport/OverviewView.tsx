@@ -89,9 +89,7 @@ export function OverviewView({
                   className="w-full h-40 object-cover"
                 />
                 <div className="px-4 py-3">
-                  <p className="text-[13px] font-medium text-dark">
-                    {cert.title}
-                  </p>
+                  <p className="text-sm font-medium text-dark">{cert.title}</p>
                 </div>
               </button>
             ))}
@@ -121,7 +119,7 @@ export function OverviewView({
                   <p className="text-xs sm:text-sm text-dark mt-1">
                     {inv.subtitle}
                   </p>
-                  <span className="text-[13px] font-medium text-primary mt-2 block hover:underline cursor-pointer">
+                  <span className="text-sm font-medium text-primary mt-2 block">
                     {inv.tag}
                   </span>
                 </div>
